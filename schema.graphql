@@ -1,0 +1,59 @@
+type Exercise @entity {
+  id: ID!
+  participator: Bytes! # address
+  optionId: BigInt! # uint256
+}
+
+type Listed @entity {
+  id: ID!
+  optionId: BigInt! # uint256
+  isListed: Boolean! # bool
+}
+
+type Offer @entity {
+  id: ID!
+  initiator: Bytes! # address
+  optionId: BigInt! # uint256
+  setted: Boolean! # bool
+}
+
+type Participate @entity {
+  id: ID!
+  participator: Bytes! # address
+  optionId: BigInt! # uint256
+}
+
+type Transfer @entity {
+  id: ID!
+  from: Bytes! # address
+  to: Bytes! # address
+  optionId: BigInt! # uint256
+}
+
+type Withdraw @entity {
+  id: ID!
+  asset: Bytes! # address
+  to: Bytes! # address
+  amount: BigInt! # uint256
+}
+
+type WithdrawCA @entity {
+  id: ID!
+  to: Bytes! # address
+  optionId: BigInt! # uint256
+  amount: BigInt! # uint256
+}
+
+type WithdrawColleteral @entity {
+  id: ID!
+  to: Bytes! # address
+  optionId: BigInt! # uint256
+  amount: BigInt! # uint256
+}
+
+type WithdrawPremium @entity {
+  id: ID!
+  to: Bytes! # address
+  optionId: BigInt! # uint256
+  amount: BigInt! # uint256
+}
