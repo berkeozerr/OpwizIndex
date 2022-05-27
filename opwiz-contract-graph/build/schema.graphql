@@ -1,0 +1,34 @@
+type Option @entity {
+  id: ID!
+  initiator: Bytes! # address
+  participant: Bytes # address
+  colleteral: Bytes # address
+  counterAsset: Bytes! # address
+  premiumAsset: Bytes! # address
+  indexOfColleteral: BigInt
+  indexOfCounter: BigInt
+  indexOfPremium: BigInt
+  amountOfColleteral: BigInt! # uint256
+  amountOfCA: BigInt! # uint256
+  premiumAmount: BigInt! # uint256
+  colleteralAssetName: String
+  counterAssetName: String
+  premiumAssetName: String
+  
+  
+}
+
+type OptionDetail @entity {
+  id: ID!
+  listAsset: Bytes # address
+  indexOfListAsset: BigInt
+  offerEnd: BigInt
+  optionExpiry: BigInt
+  listAmount: BigInt
+  colleteralType: Int
+  counterAssetType: Int
+  listAssetType: Int
+  premiumAssetType: Int
+  isListed: Boolean
+  exercised:Boolean
+  }

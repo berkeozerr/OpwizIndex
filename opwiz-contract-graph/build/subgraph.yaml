@@ -1,0 +1,43 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: OpwizFlexible
+    network: kovan
+    source:
+      address: "0x044bCaaFc6e70c6f84caE6D5AC01d7e04eb94754"
+      abi: OpwizFlexible
+      startBlock: 31740385
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Option
+        - OptionDetail
+      abis:
+        - name: OpwizFlexible
+          file: OpwizFlexible/abis/OpwizFlexible.json
+        - name: ERC20
+          file: OpwizFlexible/abis/ERC20.json
+      eventHandlers:
+        - event: Exercise(indexed address,indexed uint256)
+          handler: handleExercise
+        - event: Listed(uint256,bool)
+          handler: handleListed
+        - event: Offer(indexed address,indexed uint256,bool)
+          handler: handleOffer
+        - event: Participate(indexed address,indexed uint256)
+          handler: handleParticipate
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: Withdraw(address,address,uint256)
+          handler: handleWithdraw
+        - event: WithdrawCA(address,uint256,uint256)
+          handler: handleWithdrawCA
+        - event: WithdrawColleteral(address,uint256,uint256)
+          handler: handleWithdrawColleteral
+        - event: WithdrawPremium(address,uint256,uint256)
+          handler: handleWithdrawPremium
+      file: OpwizFlexible/OpwizFlexible.wasm
