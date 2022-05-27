@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: OpwizChainLink
@@ -18,11 +18,10 @@ dataSources:
         - OptionDetail
       abis:
         - name: OpWiz
-          file: ./abis/OpWiz.json
+          file: OpwizChainLink/abis/OpWiz.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: OpwizChainLink/abis/ERC20.json
       eventHandlers:
-      
         - event: Offer(indexed address,indexed uint256,bool)
           handler: handleOffer
         - event: Participate(indexed address,indexed uint256)
@@ -41,4 +40,4 @@ dataSources:
           handler: handleWithdrawColleteral
         - event: Withdraw(address,address,uint256)
           handler: handleWithdraw
-      file: ./src/mapping.ts
+      file: OpwizChainLink/OpwizChainLink.wasm
